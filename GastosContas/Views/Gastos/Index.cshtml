@@ -1,0 +1,59 @@
+﻿@model IEnumerable<GastosContas.Models.Gasto>
+
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<h1>Lista de gastos</h1>
+    <p><a asp-action="Create" class="btn btn-outline-success"><i class="far fa-plus-square"> Criar novo gasto</i></a>
+</p>
+<table id="myTable"class="table table-hover table-sm">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDoPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDoPagamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn alert-primary mr-1"><i class="fas fa-pencil-alt"></i></a> | 
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn alert-warning mr-1"><i class="fas fa-glasses"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Deseja realmente deletar?')" class="btn alert-danger mr-1"><i class="fa fa-trash-alt fa lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function() {
+            $('#Valor').maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',', affixesStay: false });
+        });
+    </script>
+}
