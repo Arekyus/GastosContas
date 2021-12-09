@@ -16,7 +16,6 @@ namespace GastosContas.Models
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório")]
-        [DataType(DataType.Currency)]
         [DisplayName("Valor do Pagamento")]
         public decimal Valor { get; set; }
         
