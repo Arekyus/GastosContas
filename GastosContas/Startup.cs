@@ -27,6 +27,7 @@ namespace GastosContas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
             services.AddDbContext<BancoDeDados>();
         }
 
@@ -49,7 +50,8 @@ namespace GastosContas
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
+            app.UseAuthentication();    
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -57,6 +59,7 @@ namespace GastosContas
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Gastos}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
