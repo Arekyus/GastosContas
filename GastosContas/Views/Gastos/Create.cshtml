@@ -1,5 +1,6 @@
 ﻿@model GastosContas.Models.Gasto
 
+
 @{
     ViewData["Title"] = "Cadastro";
 }
@@ -43,9 +44,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        <script type="text/javascript">
-        $(function() {
-            $('#Valor').maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',', affixesStay: false });
-        });
-         </script>
 }
+
+

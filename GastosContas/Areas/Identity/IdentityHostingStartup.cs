@@ -1,9 +1,6 @@
-﻿using System;
-using GastosContas.Areas.Identity.Data;
+﻿using GastosContas.Areas.Identity.Data;
 using GastosContas.Data;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
