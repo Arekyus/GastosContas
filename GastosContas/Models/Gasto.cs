@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 
 namespace GastosContas.Models
@@ -17,9 +18,8 @@ namespace GastosContas.Models
         public decimal Valor { get; set; }
         
         [DisplayName("Data do pagamento")]
-        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date, ErrorMessage = "Este campo é de preenchimento obrigatório")]
         public DateTime DataDoPagamento { get; set; }
         public bool Ativo { get; set; } = true;
     }

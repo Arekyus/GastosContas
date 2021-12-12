@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+
 namespace GastosContas.Migrations
 {
     public partial class GastosContas : Migration

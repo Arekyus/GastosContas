@@ -35,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Valor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DataDoPagamento)
+                @Convert.ToString(string.Format("{0:dd-MM-yyyy}",item.DataDoPagamento))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ativo)
@@ -50,7 +50,15 @@
 </table>
 
 @section Scripts {
-    
+    <script src="https://cdn.es.gov.br/scripts/jquery/jquery-globalize/1.0.0/cultures/globalize.culture.pt-BR.min.js"></script>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+    <script>    
+    $(document)
+        .ready(function(){
+        $('#Valor').mask('000.000.000.000.000,00', {reverse: true});
+        });
+    </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }
 
