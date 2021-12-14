@@ -4,6 +4,8 @@
     ViewData["Title"] = "Cadastro";
 }
 
+
+
 <h1>Lista de gastos</h1>
     <p><a asp-action="Create" class="btn btn-outline-success"><i class="far fa-plus-square"> Criar novo gasto</i></a>
 </p>
@@ -53,7 +55,7 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
         $(document).ready( function () {
-        $('#myTable').DataTable();
+        $('#myTable').DataTable()
         } );
     </script>
 
