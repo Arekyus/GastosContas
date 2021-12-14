@@ -50,14 +50,11 @@
 </table>
 
 @section Scripts {
-    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
-    <script>    
-    $(document)
-        .ready(function(){
-        $('#Valor').mask('000.000.000.000.000,00', {reverse: true});
-        });
-    </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
+    <script>
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+        } );
+    </script>
 }
 
