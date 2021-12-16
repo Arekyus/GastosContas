@@ -4,15 +4,6 @@
 
 <h2>Relatório de Gastos</h2>
 
-@{
-    var mes = ViewBag.Mes;
-    var ano = ViewBag.Ano;
-    var dias = ViewBag.Dias;
-
-    var diasSerializados = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(dias));
-
-}
-
 <p><canvas id="myChart" width="400" height="150"></canvas></p>
 
 
