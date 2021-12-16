@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GastosContas.Data;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -21,5 +23,6 @@ namespace GastosContas.Models
         [DataType(DataType.Date, ErrorMessage = "Este campo é de preenchimento obrigatório")]
         public DateTime DataDoPagamento { get; set; }
         public bool Ativo { get; set; } = true;
+                
     }
 }
