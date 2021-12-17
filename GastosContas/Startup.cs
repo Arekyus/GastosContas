@@ -24,13 +24,14 @@ namespace GastosContas
         
         public void ConfigureServices(IServiceCollection services)
         {
-            
             services.AddControllersWithViews();
             services.AddDbContext<BancoDeDados>();
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
             services.AddRazorPages();
+
+            
         }
 
         

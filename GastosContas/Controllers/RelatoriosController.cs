@@ -12,7 +12,5 @@ namespace GastosContas.Controllers
             return View();
         }
 
-        public string Descricao { get; set; }
-        public decimal Valor { get; set; }
     }
 }

@@ -1,18 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using System.Data.SqlClient;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Dapper.Contrib.Extensions;
+using GastosContas.Models;
+
 
 namespace GastosContas.Controllers
 {
-
-    public class RelatoriosApiController : BaseController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RelatoriosApiController : ControllerBase
     {
+        private IConfiguration _config;
 
-        [HttpGet]
-        public string GetById ([FromRoute] string descricao)
+        public RelatoriosApiController(IConfiguration configuration)
         {
-            return descricao;
+            _config = configuration;
         }
 
-
-
+        [HttpGet]
+        public IEnumerable<Gasto> GetGastos()
+        {
+            using (SqlConnection conexao = new SqlConnection(
+                _config.GetConnectionString("GastosContasContextConnection")))
+            {
+                return conexao.GetAll<Gasto>();
+            }
+        }
     }
 }
